@@ -1,29 +1,14 @@
-<?php require_once 'app/views/templates/header.php'; ?>
-
+<?php require_once 'app/views/templates/header.php' ?>
 <div class="container">
-    <h1>Create Reminder</h1>
+    <h2>Create New Reminder</h2>
+    <form method="post">
+        <label>Subject:</label><br>
+        <input type="text" name="subject" required><br><br>
 
-    <?php if (!empty($data['error'])): ?>
-        <p style="color:red;"><?= htmlspecialchars($data['error']) ?></p>
-    <?php endif; ?>
+        <label>Description:</label><br>
+        <textarea name="description"></textarea><br><br>
 
-    <form method="POST" action="/reminders/create">
-        <div>
-            <label for="subject">Subject:</label><br>
-            <input type="text" id="subject" name="subject" required>
-        </div>
-
-        <div>
-            <label for="description">Description:</label><br>
-            <textarea id="description" name="description"></textarea>
-        </div>
-
-        <div>
-            <button type="submit">Create</button>
-        </div>
+        <input type="submit" value="Create Reminder">
     </form>
-
-    <p><a href="/reminders">Back to reminders list</a></p>
 </div>
-
-<?php require_once 'app/views/templates/footer.php'; ?>
+<?php require_once 'app/views/templates/footer.php' ?>

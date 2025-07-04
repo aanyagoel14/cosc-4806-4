@@ -15,8 +15,8 @@ class Reminder {
 
     public function create_reminder($user_id, $subject, $description) {
         $db = db_connect();
-        $statement = $db->prepare("INSERT INTO notes (user_id, subject, description, created_at) VALUES (?, ?, ?, NOW())");
-        return $statement->execute([$user_id, $subject, $description]);
+        $statement = $db->prepare("INSERT INTO reminders (user_id, subject, description, created_at) VALUES (?, ?, ?, NOW())");
+        $statement->execute([$user_id, $subject, $description]);
     }
 
 
