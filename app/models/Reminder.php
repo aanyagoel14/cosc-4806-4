@@ -21,7 +21,8 @@ class Reminder {
 
 
     public function update_reminders ($reminder_id) {
-      $db = db_connect();
-        //do update statement
+        $db = db_connect();
+        $stmt = $db->prepare("UPDATE reminders SET subject = ?, description = ? WHERE id = ?");
+        $stmt->execute([$subject, $description, $id]);
     }
 }
