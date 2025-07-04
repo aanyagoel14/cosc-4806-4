@@ -63,6 +63,23 @@ class Reminders extends Controller {
         $reminder = $R->get_all_reminders($id);
         $this->view('reminders/update', ['reminder' => $reminder]);
     }
+
+    public function delete($id = null){
+        if (session_status() == PHP_SESSION_NONE){
+            session_start();
+        }
+        $user_id = $_SESSION['user_id'] ?? null;
+        if (!$user_id) {
+            header('Location: /login');
+            exit();
+        }
+        if ($id) {
+            $R = $this->model('Reminder');
+            $R->delete_reminder($id, $user_id);
+        }
+        header('Location: /reminders/index');
+        exit();
+    }
     }
 
 

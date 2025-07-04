@@ -25,4 +25,6 @@ class Reminder {
         $statement = $db->prepare("UPDATE reminders SET subject = ?, description = ? WHERE id = ?");
         $statement->execute([$subject, $description, $id]);
     }
+
+    }
 }
