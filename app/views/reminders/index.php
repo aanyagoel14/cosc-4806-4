@@ -36,5 +36,5 @@
             </tbody>
         </table>
     <?php endif; ?>
-<!-- </div>
-<?php require_once 'app/views/templates/footer.php' ?> -->
+</div>
+<?php require_once 'app/views/templates/footer.php' ?>

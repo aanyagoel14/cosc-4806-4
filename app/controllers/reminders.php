@@ -2,6 +2,17 @@
 
 class Reminders extends Controller {
 
+    private function require_login() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /login');
+            exit();
+        }
+        return $_SESSION['user_id'];
+    }
+    
     public function index() {	
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
