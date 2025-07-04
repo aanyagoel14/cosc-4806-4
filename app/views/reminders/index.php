@@ -26,10 +26,10 @@
                     <tr>
                         <td><?= htmlspecialchars($reminder['subject']) ?></td>
                         <td><?= htmlspecialchars($reminder['description']) ?></td>
-                        <td><?= htmlspecialchars($reminder['created_at']) ?></td>
+                        <!-- <td><?= htmlspecialchars($reminder['created_at']) ?></td>
                         <td>
                             <a href="/reminders/update/<?= $reminder['id'] ?>" class="btn btn-sm btn-warning">Update</a>
-                            <a href="/reminders/delete/<?= $reminder['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this reminder?');">Delete</a>
+                            <a href="/reminders/delete/<?= $reminder['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this reminder?');">Delete</a> -->
                         </td>
                     </tr>
                 <?php endforeach; ?>
