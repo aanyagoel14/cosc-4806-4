@@ -81,6 +81,7 @@ class User {
             if (password_verify($password, $rows['Password'])) {
                 $_SESSION['auth'] = 1;
                 $_SESSION['username'] = ucwords($username);
+                $_SESSION['user_id'] = $rows['ID'];
                 unset($_SESSION['failedAuth']);
                 User::logAttempt($username, 'good'); 
                 return true;
