@@ -3,8 +3,16 @@
 class Reminders extends Controller {
 
     public function index() {	
-      $reminder = $this->model('Reminder');
-      $list_of_reminders = $reminder->get_all_reminders();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        $user_id = $_SESSION['user_id'] ?? null;
+        if (!$user_id) {
+            header('Location: /login');
+            exit();
+        }
+        $reminder = $this->model('Reminder');
+        $list_of_reminders = $reminder->get_all_reminders([$user_id]);
 	    $this->view('reminders/index', ['reminders' => $list_of_reminders]);
     }
 

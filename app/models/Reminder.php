@@ -5,10 +5,10 @@ class Reminder {
 
     }
 
-    public function get_all_reminders () {
+    public function get_all_reminders ($user_id) {
       $db = db_connect();
-      $statement = $db->prepare("select * from reminders;");
-      $statement->execute();
+      $statement = $db->prepare("SELECT * FROM reminders WHERE user_id = ? ORDER BY created_at DESC");
+      $statement->execute($user_id);
       $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
       return $rows;
     }
