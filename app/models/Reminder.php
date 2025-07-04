@@ -26,5 +26,10 @@ class Reminder {
         $statement->execute([$subject, $description, $id]);
     }
 
+    public function delete_reminder($id, $user_id) {
+        $db = db_connect();
+        $stmt = $db->prepare("DELETE FROM reminders WHERE id = ? AND user_id = ?");
+        $stmt->execute([$id, $user_id]);
     }
+
 }
